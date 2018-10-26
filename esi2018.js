@@ -1,1 +1,1 @@
-document.getElementId('body').style.backgroundColor = "red";
+document.getElementId('test').style.backgroundColor = "red";
