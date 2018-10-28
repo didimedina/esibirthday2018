@@ -1,2 +1,2 @@
-//document.getElementId('test').style.backgroundColor = "red";
 alert('script is working!');
+document.getElementId('test-element').style.backgroundColor = "red";
