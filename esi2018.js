@@ -1,8 +1,7 @@
 alert('script is working!');
 
 const question = document.getElementById('question');
-console.log(question);
+const questionQuery = document.querySelector('question');
 
 question.style.color = 'red';
-console.log(question.style.color);
 
