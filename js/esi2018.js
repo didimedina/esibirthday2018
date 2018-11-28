@@ -5,6 +5,6 @@ const answerField = document.getElementById('answer');
 
 answerField.addEventListener('click', () => {
     answerField.placeholder = "Give it your best shot!";
-})
+});
 
 
