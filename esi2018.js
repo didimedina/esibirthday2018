@@ -1,7 +1,10 @@
 alert('script is working!');
 
-const question = document.getElementById('question');
-const questionQuery = document.querySelector('question');
 
-question.style.color = 'red';
+var question = document.getElementById('question');
+var questionQuery = document.querySelector('question');
+var body = document.getElementsByTagName('body');
+
+
+
 
