@@ -19,7 +19,7 @@ const questions = [
     {
         question: "What was the resturuant we ate at after I landed in Israel for the first time?",
         correctAnswers: ["kafit", "קפית"]
-    }
+    },
 
     {
         question: "What appointment did I cancle in budapest??",
