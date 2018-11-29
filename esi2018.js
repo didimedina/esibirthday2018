@@ -11,8 +11,9 @@
 
 // Variables
 const heading = document.getElementById("heading");
-const input = document.getElementById('answer');
+const input = document.getElementById('input');
 const submitBtn = document.getElementById('submit-btn');
+let questionTracker;
 
 // Question objects...
 const questions = [
@@ -28,7 +29,7 @@ const questions = [
 ];
 
 //Placing the first question staticly...
-heading.innerHTML = "What was the resturuant we ate at after I landed in Israel for the first time?";
+heading.innerHTML = questions[0].question
 
 
 //Placing the first question via objects...
@@ -42,12 +43,12 @@ input.addEventListener('click', () => {
 
 submitBtn.addEventListener("click", () => {
     let submittedAnswer = input.value;
-    if (submittedAnswer === "kafit") {
+    if (submittedAnswer === questions[0].correctAnswers[0]) {
         heading.style.color = "green";
-        heading.innerHTML = "You got it!";
     } else {
         heading.style.color = "red";
-        heading.innerHTML = "Try again.";
+        input.value = "";
+        input.placeholder = "Nope, try again!";
     }
 });
 
