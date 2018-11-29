@@ -15,7 +15,7 @@ const answerField = document.getElementById('answer');
 
 
 //Placing the first question...
-question.innerHTML = "What was the resturuant we ate at after I landed in Israel for the first time?";
+// question.innerHTML = "What was the resturuant we ate at after I landed in Israel for the first time?";
 
 answerField.addEventListener('click', () => {
     answerField.placeholder = "Give it your best shot!";
