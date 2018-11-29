@@ -10,29 +10,44 @@
 //––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\\
 
 // Variables
-const question = document.getElementById("question");
-const answerField = document.getElementById('answer');
+const heading = document.getElementById("heading");
+const input = document.getElementById('answer');
+const submitBtn = document.getElementById('submit-btn');
+
+// Question objects...
+const questions = [
+    {
+        question: "What was the resturuant we ate at after I landed in Israel for the first time?",
+        correctAnswers: ["kafit", "קפית"]
+    }
+
+    {
+        question: "What appointment did I cancle in budapest??",
+        correctAnswers: ["haircut", "barber", "barber shop", "hair salon"]
+    }
+];
+
+//Placing the first question staticly...
+heading.innerHTML = "What was the resturuant we ate at after I landed in Israel for the first time?";
 
 
-//Placing the first question...
-question.innerHTML = "What was the resturuant we ate at after I landed in Israel for the first time?";
+//Placing the first question via objects...
+// heading.innerHTML = questions;
 
-answerField.addEventListener('click', () => {
-    answerField.placeholder = "Give it your best shot!";
+
+input.addEventListener('click', () => {
+    input.placeholder = "Give it your best shot!";
 });
 
 
-// const myButton = document.getElementById("myButton");
-// const myInput = document.getElementById("myInput");
-
-// myButton.addEventListener("click", () => {
-//     let answer = myInput.value;
-//     if (answer === "red") {
-//         myHeading.style.color = "green";
-//         myHeading.innerHTML = "You got it!";
-//     } else {
-//         myHeading.style.color = "red";
-//         myHeading.innerHTML = "Try again.";
-//     }
-// });
+submitBtn.addEventListener("click", () => {
+    let submittedAnswer = input.value;
+    if (submittedAnswer === "kafit") {
+        heading.style.color = "green";
+        heading.innerHTML = "You got it!";
+    } else {
+        heading.style.color = "red";
+        heading.innerHTML = "Try again.";
+    }
+});
 
