@@ -3,6 +3,7 @@ const heading = document.getElementById("heading");
 const input = document.getElementById('input');
 const submitBtn = document.getElementById('submit-btn');
 let currentQuestion = 0;
+let submittedAnswer = "";
 
 // Question objects...
 const questions = [
@@ -35,9 +36,10 @@ updateQuestion();
 
 // Validating answers once submitted. 
 submitBtn.addEventListener('click', () => {
-    let submittedAnswer = input.value.toLowerCase();
+    submittedAnswer = input.value.toLowerCase();
+    //submittedAnswer = submittedAnswer.toLowerCase();
     if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
-        currentQuestion =+ 1;
+        currentQuestion ++;
         updateQuestion();
     } else {
         heading.style.color = "red";
