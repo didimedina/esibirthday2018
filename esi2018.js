@@ -28,8 +28,8 @@ const questions = [
     },
 
     {
-        question: "What nickname did I give you?",
-        correctAnswers: ["chuchu", "choochoo", "chooch", "chu chu", 'choochoo']
+        question: "How did we find our first apartment?",
+        correctAnswers: ["yad2", "yad shtayim"]
     }
 ];
 
@@ -44,7 +44,7 @@ function updateQuestion() {
 updateQuestion();
 
 submitBtn.addEventListener('click', () => {
-    let submittedAnswer = input.value;
+    let submittedAnswer = input.value.toLowercase();
     if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
         currentQuestion =+ 1;
         updateQuestion();
