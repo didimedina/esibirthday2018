@@ -35,7 +35,7 @@ updateQuestion();
 
 // Validating answers once submitted. 
 submitBtn.addEventListener('click', () => {
-    let submittedAnswer = input.value.toLowercase();
+    let submittedAnswer = input.value.toLowerCase();
     if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
         currentQuestion =+ 1;
         updateQuestion();
