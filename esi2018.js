@@ -2,6 +2,7 @@
 const heading = document.getElementById("heading");
 const input = document.getElementById('input');
 const submitBtn = document.getElementById('submit-btn');
+let score = 0;
 let currentQuestion = 0;
 let submittedAnswer = "";
 
@@ -30,23 +31,25 @@ function updateQuestion() {
     input.value = "";
 };
 
-//Placing the first question staticly...
-updateQuestion();
+if (score < questions.length) {
+    //Placing the first question staticly...
+    updateQuestion();
 
-
-// Validating answers once submitted. 
-submitBtn.addEventListener('click', () => {
-    submittedAnswer = input.value.toLowerCase();
-    //submittedAnswer = submittedAnswer.toLowerCase();
-    if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
-        currentQuestion ++;
-        updateQuestion();
-    } else {
-        heading.style.color = "red";
-        input.value = "";
-        input.placeholder = "Nope, try again!";
-    };
-
-});
-
+    // Validate answerw once submit button is clicked.
+    submitBtn.addEventListener('click', () => {
+        submittedAnswer = input.value.toLowerCase();
+        if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
+            currentQuestion ++;
+            score ++;
+            updateQuestion();
+        } else {
+            heading.style.color = "red";
+            input.value = "";
+            input.placeholder = "Nope, try again!";
+        };
+    });
+} else {
+    //show birthday letter. 
+    heading.innerHTML = 'happy birthday!';
+};
 
