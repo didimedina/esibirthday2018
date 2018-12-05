@@ -24,32 +24,31 @@ const questions = [
     }
 ];
 
+
 function updateQuestion() {
-    heading.innerHTML = questions[currentQuestion].question;
-    input.placeholder = "Type your answer...";
-    heading.style.color = "";
-    input.value = "";
+    if (score < questions.length) {
+        heading.innerHTML = questions[currentQuestion].question;
+        input.placeholder = "Type your answer...";
+        heading.style.color = "";
+        input.value = "";
+    } else {
+        //show birthday letter. 
+        heading.innerHTML = 'happy birthday!';
+    };
 };
 
-if (score < questions.length) {
-    //Placing the first question staticly...
-    updateQuestion();
+updateQuestion();
 
-    // Validate answerw once submit button is clicked.
-    submitBtn.addEventListener('click', () => {
-        submittedAnswer = input.value.toLowerCase();
-        if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
-            currentQuestion ++;
-            score ++;
-            updateQuestion();
-        } else {
-            heading.style.color = "red";
-            input.value = "";
-            input.placeholder = "Nope, try again!";
-        };
-    });
-} else {
-    //show birthday letter. 
-    heading.innerHTML = 'happy birthday!';
-};
-
+// Validate answerw once submit button is clicked.
+submitBtn.addEventListener('click', () => {
+    submittedAnswer = input.value.toLowerCase();
+    if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
+        currentQuestion++;
+        score++;
+        updateQuestion();
+    } else {
+        heading.style.color = "red";
+        input.value = "";
+        input.placeholder = "Nope, try again!";
+    };
+});
