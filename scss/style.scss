@@ -8,17 +8,53 @@ $primary-color: black;
 }
 
 
-// BASE -------------------------------------- //
+
+
+/* BASE -------------------------------------- */
 .success-header {
-    @include fill {
+    @include fill { 
+        // when using @include it allows you to add properties to the parent.
+        // when using @extend you tell sass to include properties from another class. 
         border: 1px;
     }
     border: 1px;
 }
 
-.button {
+// how to use the '&' symbolto makeit easier to inherit styles.
+.btn {
+    &-primary {
+        // this will out put .btn-primary {} the '&' in essence inherits the label from the parent. 
+    }
+    &::after { 
+        // it's also very common to use the '&' decloration with pseodo elements and classes
+        // ::after or :hover 
+    }
+}
+
+// you could exicute this invertadly as well
+p {
+    // primary style for paragraphs go here
+    .user-card & {
+        // here you'd add any styles that apply to paragraphs within .user-card class only. 
+    }
+}
+
+// anything with a % sign when declared is called a placeholder in sass.
+// it's best practice to extend on place holders to prevent bloat in your code
+// for example you might create a btn placeholder class andexten on it for
+// the all the different types of btns you have ie: primary, secondary, etc. 
+// and in HTML you'd only ever tag the element with a primary-btn or secondary-btn. 
+%btn {
+
     color: blue;
     background-color: yellow;
+
+}
+
+.primary-btn {
+    @extend %btn;
+    border: 1px solid black; 
+
 }
 
 
