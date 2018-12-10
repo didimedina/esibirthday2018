@@ -67,6 +67,10 @@ p {
 @media (min-width: 600px) {
     //this is a media query or break point. 
     .container {
+        // this is using the ampersand to write less code and spit out styling for quiz and letter container.
+        // this isn't dry however, and could be improved by putting the properties for the media queries potentially in a mixin,
+        // then inheriting it inline on the element.
+        // you could also save the min-width/max-width as a variable. 
         &-quiz{
           max-width: 60%;
           margin: auto;
