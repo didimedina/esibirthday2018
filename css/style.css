@@ -4,11 +4,19 @@
   border: 1px;
   border: 1px; }
 
-.primary-btn {
+.btn-primary {
   color: blue;
   background-color: yellow; }
 
-.primary-btn {
+.btn-primary {
   border: 1px solid black; }
+
+@media (min-width: 600px) {
+  .container-quiz {
+    max-width: 60%;
+    margin: auto; }
+  .container-letter {
+    max-width: 60%;
+    margin: auto; } }
 
 /*# sourceMappingURL=style.css.map */

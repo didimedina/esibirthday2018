@@ -1,5 +1,12 @@
-// VARIABLES --------------------------------- //
-$primary-color: black;
+// IMPORT ------------------------------------ //
+@import 'partials/variables';
+// imports allow you to break out your scss into smaller chunks and make it easier to manage.
+// to import a partial you use the @import and the file directory in quotations. 
+// when creating a partial make sure to name the file with an underscore at the begining of it
+// so that scss compiler knows to ignore converting into its own css file. 
+// to import multiple partialfiles you coulduse one @import directive and seperate the files with cammas.
+// lastly, make sure to import files in orderof dependancies otherwise you will have compiling issues.
+// a good way to break out partials are; base, components, layout, utilities.
 
 // MIXINS ------------------------------------ //
 @mixin fill {
@@ -44,18 +51,29 @@ p {
 // for example you might create a btn placeholder class andexten on it for
 // the all the different types of btns you have ie: primary, secondary, etc. 
 // and in HTML you'd only ever tag the element with a primary-btn or secondary-btn. 
+// placeholder classes are also referredto as 'helpers'.
 %btn {
-
     color: blue;
     background-color: yellow;
-
 }
 
-.primary-btn {
+.btn-primary {
     @extend %btn;
     border: 1px solid black; 
-
 }
 
 
 // BREAK POINTS ------------------------------ //
+@media (min-width: 600px) {
+    //this is a media query or break point. 
+    .container {
+        &-quiz{
+          max-width: 60%;
+          margin: auto;
+        }
+        &-letter{
+            max-width: 60%;
+            margin: auto;
+        }
+    }
+}
