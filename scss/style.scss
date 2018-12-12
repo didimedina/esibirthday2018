@@ -1,83 +1,87 @@
-// IMPORT ------------------------------------ //
-@import 'partials/variables';
-// imports allow you to break out your scss into smaller chunks and make it easier to manage.
-// to import a partial you use the @import and the file directory in quotations. 
-// when creating a partial make sure to name the file with an underscore at the begining of it
-// so that scss compiler knows to ignore converting into its own css file. 
-// to import multiple partialfiles you coulduse one @import directive and seperate the files with cammas.
-// lastly, make sure to import files in orderof dependancies otherwise you will have compiling issues.
-// a good way to break out partials are; base, components, layout, utilities.
+// =====================================================
+// VARIABLES 
+// =====================================================
 
-// MIXINS ------------------------------------ //
-@mixin fill {
-    color: $primary-color;
-    @content
+// COLORS
+$color-black: black;
+$color-grey-light: #C4C4C4;
+$color-grey-lighter: #E5E5E5;
+$color-blue-mid: #0086E8;
+$color-blue-dark: #005CBF;
+
+// UNIT
+//$unit: 4px;
+
+// TYPOGRAPHY
+$text-h1: 96px light;
+$text-b1: 16px regular;
+$text-button: 16px bold;
+
+// SPACING
+$space-tighter: 4px;
+$space-tight: 8px;
+$space-standard: 12px;
+$space-loose: 24px;
+$space-looser: 40px;
+
+// GRID
+$max-width: 1200;
+$grid-colomns: 12;
+.section {
+    max-width: $max-width;
+    margin: auto;
 }
 
-
-
-
-/* BASE -------------------------------------- */
-.success-header {
-    @include fill { 
-        // when using @include it allows you to add properties to the parent.
-        // when using @extend you tell sass to include properties from another class. 
-        border: 1px;
+.container {
+    @for $i from 1 through $grid-colomns {
+        &--col#{$i} {
+            flex: 0 0 100% / $grid-colomns * $i;
+        }
     }
-    border: 1px;
+    
+    &__quiz {
+        border: #005CBF 1px; 
+    }
+
 }
 
-// how to use the '&' symbolto makeit easier to inherit styles.
-.btn {
-    &-primary {
-        // this will out put .btn-primary {} the '&' in essence inherits the label from the parent. 
-    }
-    &::after { 
-        // it's also very common to use the '&' decloration with pseodo elements and classes
-        // ::after or :hover 
-    }
-}
+// =====================================================
+// MIXINS
+// =====================================================
 
-// you could exicute this invertadly as well
-p {
-    // primary style for paragraphs go here
-    .user-card & {
-        // here you'd add any styles that apply to paragraphs within .user-card class only. 
-    }
-}
 
-// anything with a % sign when declared is called a placeholder in sass.
-// it's best practice to extend on place holders to prevent bloat in your code
-// for example you might create a btn placeholder class andexten on it for
-// the all the different types of btns you have ie: primary, secondary, etc. 
-// and in HTML you'd only ever tag the element with a primary-btn or secondary-btn. 
-// placeholder classes are also referredto as 'helpers'.
+
+// =====================================================
+// HELPERS
+// =====================================================
 %btn {
-    color: blue;
-    background-color: yellow;
+    padding: 8px 16px 8px 16px;
+    color: $color-black;
+    border-radius: 4px;
 }
 
+%input {
+    padding: 8px 8px 8px 8px;
+    &::placeholder {
+        color: $color-grey-lighter;
+    }
+}
+
+
+// ======================================================
+// BASE 
+// ======================================================
 .btn-primary {
     @extend %btn;
-    border: 1px solid black; 
+    color: white;
+    background-color: $color-blue-mid;
+}
+
+.input-answer {
+    @extend %input;
 }
 
 
-// BREAK POINTS ------------------------------ //
-@media (min-width: 600px) {
-    //this is a media query or break point. 
-    .container {
-        // this is using the ampersand to write less code and spit out styling for quiz and letter container.
-        // this isn't dry however, and could be improved by putting the properties for the media queries potentially in a mixin,
-        // then inheriting it inline on the element.
-        // you could also save the min-width/max-width as a variable. 
-        &-quiz{
-          max-width: 60%;
-          margin: auto;
-        }
-        &-letter{
-            max-width: 60%;
-            margin: auto;
-        }
-    }
-}
+// ======================================================
+// BREAK-POINTS 
+// ======================================================
