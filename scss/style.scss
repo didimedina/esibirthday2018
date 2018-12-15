@@ -61,6 +61,7 @@ h1 {
 }
 
 .btn {
+    cursor: pointer;
     padding: .5rem 0rem;
     color: $color--black;
     border-radius: 4px;
@@ -73,6 +74,9 @@ h1 {
     
     &--primary {
         color: $color--blue-mid;
+        &:hover {
+            color: $color--blue-dark;
+        }
     }
 
     &--silent {

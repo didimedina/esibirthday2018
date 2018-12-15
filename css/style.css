@@ -26,6 +26,7 @@ h1 {
   justify-content: space-between; }
 
 .btn {
+  cursor: pointer;
   padding: .5rem 0rem;
   color: black;
   border-radius: 4px;
@@ -37,6 +38,8 @@ h1 {
   background-color: none; }
   .btn--primary {
     color: #0086E8; }
+    .btn--primary:hover {
+      color: #005CBF; }
   .btn--silent {
     color: #C4C4C4; }
 
