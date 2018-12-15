@@ -30,7 +30,14 @@ $max-width: 800px;
 }
 
 
-h1 {font-size: $font--h1;}
+
+
+h1 {
+    font-size: $font--h1;
+    @media (max-width: 500px) {
+        font-size: calc(#{$font--h1} - 1rem);
+    }
+}
 
 .section {
     max-width: $max-width;
