@@ -1,4 +1,6 @@
 // Variables
+const quiz = document.getElementById("quiz");
+const birthdayLetter = document.getElementById("birthday-letter");
 const heading = document.getElementById("heading");
 const input = document.getElementById('input-answer');
 const submitBtn = document.getElementById('btn-submit');
@@ -24,6 +26,7 @@ const questions = [
     }
 ];
 
+// birthdayLetter.style.display = "none";
 
 function updateQuestion() {
     if (score < questions.length) {
@@ -33,7 +36,10 @@ function updateQuestion() {
         input.value = "";
     } else {
         //show birthday letter. 
-        heading.innerHTML = 'happy birthday!';
+        quiz.style.display = "none";
+        birthdayLetter.style.display = "flex";
+
+        // heading.innerHTML = 'happy birthday!';
     };
 };
 
@@ -41,6 +47,7 @@ updateQuestion();
 
 // Validate answerw once submit button is clicked.
 submitBtn.addEventListener('click', () => {
+    // input.autofocus = true; trying to get the input to autofocus each time but its not working... 
     submittedAnswer = input.value.toLowerCase();
     if (questions[currentQuestion].correctAnswers.indexOf(submittedAnswer) > -1) {
         currentQuestion++;
