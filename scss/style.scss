@@ -63,14 +63,14 @@ br {
     flex-direction: column;
     justify-content: center;
     @media (max-width: 800px) {
-        margin: 0px 16px;
+        margin: 0px 24px;
     }
     &__quiz {
-        border: 1px solid red;
         max-width: 800px;
     }
 
     &__birthday-letter {
+        display: none;
         padding-top: 6rem; 
         padding-bottom: 6rem;
     }
@@ -121,7 +121,6 @@ br {
 }
 
 .birthday-letter__gallery {
-    border: 1px solid blue;
     display: grid;
     grid-template-columns: repeat(12, minmax(0px, 1fr));
     grid-template-rows: repeat(6, minmax(0px, 1fr));
@@ -131,26 +130,29 @@ br {
     margin-bottom: 3rem;
 }
 
-.gallery__image-one {
-    background-image: url(./images/image-one.jpg);
+%image-center {
+    background-size: cover;
     background-repeat: no-repeat;
-    background-position: left top;
-    border: 1px solid blue;
+    background-position: center;
+}
+
+.gallery__image-one {
+    background-image: url(../images/image-one.jpg);
+    @extend %image-center;
     grid-column: 2 / 8;
     grid-row: 1 / 5;
 }
 
 .gallery__image-two {
-    background-image: url(./images/image-two.jpg);
-    background-repeat: no-repeat;
-    background-position: left top;
-    border: 1px solid blue;
+    background-image: url(../images/image-two.jpg);
+    @extend %image-center;
     grid-column: 8 / 12;
     grid-row: 2 / 7;
 }
 
 .gallery__image-three {
-    border: 1px solid blue;
+    background-image: url(../images/image-three.jpg);
+    @extend %image-center;
     grid-column: 5 / 8;
     grid-row: 5 / 7;
 }
@@ -162,9 +164,7 @@ br {
 }
 
 .birthday-letter__title {
-    border: 1px solid blue;
     margin-bottom: 2rem;
-    // text-align: center;
 }
 
 .birthday-letter__body {
