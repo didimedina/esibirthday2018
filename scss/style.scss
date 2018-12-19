@@ -4,8 +4,9 @@
 
 // COLORS
 $color--black: black;
-$color--grey-light: #C4C4C4;
-$color--grey-lighter: #E5E5E5;
+$color--gray-dark: #3F3F3F;
+$color--gray-light: #C4C4C4;
+$color--gray-lighter: #E5E5E5;
 $color--blue-mid: #0086E8;
 $color--blue-dark: #005CBF;
 
@@ -22,17 +23,20 @@ $space--tight: .5rem;
 $space--standard: .75rem;
 $space--loose: 1.5rem;
 $space--looser: 2.5rem;
-$max-width: 800px;
+$max-width: 1200px;
 
 
 
-* {
-    font-family: $font
+body {
+    font-family: $font;
+    margin: 0px 0px;
 }
+
 
 
 h1 {
     font-size: $font--h1;
+    margin: 0px 0px;
     @media (max-width: 600px) {
         font-size: calc(#{$font--h1} - 1rem);
     }
@@ -40,6 +44,7 @@ h1 {
 
 p {
     font-size: $font--h3;
+    margin: 0px 0px;
     text-align: justify;
 }
 
@@ -54,20 +59,20 @@ br {
     max-width: $max-width;
     min-height: 100vh;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @media (max-width: 800px) {
         margin: 0px 16px;
     }
     &__quiz {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        border: 1px solid red;
+        max-width: 800px;
     }
 
     &__birthday-letter {
-        display: none;
-        flex-direction: column;
-        // justify-content: center;
-        align-items: justify;
+        padding-top: 6rem; 
+        padding-bottom: 6rem;
     }
 }
 
@@ -98,7 +103,7 @@ br {
     }
 
     &--silent {
-        color: $color--grey-light;
+        color: $color--gray-light;
     }
 
 }
@@ -107,29 +112,61 @@ br {
     font-size: $font--b1; 
     padding: $space--loose 0px;
     border: 0px none;
-    border-bottom: 1px solid $color--grey-lighter;
+    border-bottom: 1px solid $color--gray-lighter;
     outline: none;
     &::placeholder {
-        color: $color--grey-lighter;
+        color: $color--gray-lighter;
     }
 
 }
 
-// .birthday-letter__text {
-//     border: 1px solid red;
-//     display: flex;
-//     flex-direction: column;
-//     // justify-content: center;
-//     align-items: center;
-// }
-
 .birthday-letter__gallery {
-    height: 50vh;
+    border: 1px solid blue;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0px, 1fr));
+    grid-template-rows: repeat(6, minmax(0px, 1fr));
+    grid-gap: 12px;
+    height: 70vh;
     width: 100%;
-    background-color: gray;
+    margin-bottom: 3rem;
+}
+
+.gallery__image-one {
+    background-image: url(./images/image-one.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 1px solid blue;
+    grid-column: 2 / 8;
+    grid-row: 1 / 5;
+}
+
+.gallery__image-two {
+    background-image: url(./images/image-two.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    border: 1px solid blue;
+    grid-column: 8 / 12;
+    grid-row: 2 / 7;
+}
+
+.gallery__image-three {
+    border: 1px solid blue;
+    grid-column: 5 / 8;
+    grid-row: 5 / 7;
+}
+
+.birthday-letter__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .birthday-letter__title {
-    // border: 1px solid blue;
-    margin: none;
+    border: 1px solid blue;
+    margin-bottom: 2rem;
+    // text-align: center;
+}
+
+.birthday-letter__body {
+    color: $color--gray-dark;
 }
