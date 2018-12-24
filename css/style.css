@@ -50,7 +50,7 @@ body {
   .section__quiz {
     max-width: 800px; }
   .section__birthday-letter {
-    display: flex;
+    display: none;
     padding-top: 6rem;
     padding-bottom: 6rem; }
 
