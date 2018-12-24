@@ -59,3 +59,4 @@ submitBtn.addEventListener('click', () => {
         input.placeholder = "Nope, try again!";
     };
 });
+
