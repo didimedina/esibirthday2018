@@ -72,11 +72,10 @@ body {
 .section {
     max-width: $max-width;
     min-height: 100vh;
-    margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0px 24px;
+    margin: auto;
 
     &__quiz {
         max-width: 800px;

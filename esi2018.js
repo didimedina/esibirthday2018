@@ -23,10 +23,19 @@ const questions = [
     {
         question: "How did we find our first apartment?",
         correctAnswers: ["yad2", "yad shtayim"]
+    },
+    
+    {
+        question: "As the old couple that we are, what is the most common activity we'd do outside the house?",
+        correctAnswers: ["movies", "movie", "theaters"]
+    },
+
+    {
+        question: "What did my Mom call you when I asked her what she thought of you the first time?",
+        correctAnswers: ["lollipop", "lolipop", "candy on a stick"]
     }
 ];
 
-// birthdayLetter.style.display = "none";
 
 function updateQuestion() {
     if (score < questions.length) {
@@ -43,7 +52,8 @@ function updateQuestion() {
     };
 };
 
-updateQuestion();
+updateQuestion(); 
+
 
 // Validate answerw once submit button is clicked.
 submitBtn.addEventListener('click', () => {
